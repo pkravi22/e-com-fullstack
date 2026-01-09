@@ -10,15 +10,16 @@ import {
 import { AppDispatch } from "@/store/store";
 import api from "@/lib/axios";
 
-/* ================= LOGIN ================= */
+
 export const loginUser =
   (email: string, password: string) => async (dispatch: AppDispatch) => {
+    console.log("hello");
     try {
       dispatch(loginStart());
 
       const res = await api.post("/api/auth/login", {
-        email,
-        password,
+        email: "pramendrasinghravi@gmail.com",
+        password: "123456",
       });
       console.log("res", res);
       dispatch(
@@ -28,7 +29,6 @@ export const loginUser =
         })
       );
 
-      // Persist token (client-only)
       if (typeof window !== "undefined") {
         localStorage.setItem("token", res.data.token);
       }
@@ -37,7 +37,6 @@ export const loginUser =
     }
   };
 
-/* ================= SIGNUP ================= */
 export const signupUser = (data: any) => async (dispatch: AppDispatch) => {
   try {
     dispatch(loginStart());
@@ -68,12 +67,11 @@ export const getMe = () => async (dispatch: AppDispatch) => {
       })
     );
   } catch (error) {
-    // silently fail (user not logged in)
     dispatch(loginFailure(null));
   }
 };
 
-/* ================= LOGOUT ================= */
+
 export const logoutUser = () => (dispatch: AppDispatch) => {
   if (typeof window !== "undefined") {
     localStorage.removeItem("token");

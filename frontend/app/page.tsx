@@ -4,6 +4,8 @@ import Header from "@/components/mycomponents/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useProfile } from "@/hooks/useProfile";
+import { RootState } from "@/store/store";
+import { useSelector } from "react-redux";
 
 const categories = [
   { id: 1, name: "Electronics" },
@@ -31,7 +33,10 @@ const products = [
 ];
 
 export default function HomePage() {
-  const { data: user, isLoading } = useProfile();
+  const { data, isLoading } = useProfile();
+  const { loading, error, isAuthenticated, user } = useSelector(
+    (state: RootState) => state.auth
+  );
   console.log("user", user);
   return (
     <main className="flex flex-col gap-16">

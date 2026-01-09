@@ -12,6 +12,6 @@ export const useProfile = () => {
       const res = await api.get("/api/auth/getme");
       return res.data;
     },
-    retry: false, // optional
+    retry: false,
   });
 };

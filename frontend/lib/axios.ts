@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000",
-  withCredentials: true, // important for cookies (refresh tokens)
+  baseURL: "https://e-com-fullstack.onrender.com/",
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },

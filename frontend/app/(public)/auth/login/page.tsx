@@ -25,7 +25,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const handleLogin = (e: React.FormEvent) => {
+    
     e.preventDefault();
+    console.log("hello");
     dispatch(loginUser(email, password));
   };
 
