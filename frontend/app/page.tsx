@@ -37,7 +37,7 @@ export default function HomePage() {
   const { loading, error, isAuthenticated, user } = useSelector(
     (state: RootState) => state.auth
   );
-  console.log("user", user);
+  console.log("user detail", data);
   return (
     <main className="flex flex-col gap-16">
       <Header />

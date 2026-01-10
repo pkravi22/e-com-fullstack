@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 connectDb();
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://e-com-fullstack-1.onrender.com",
     credentials: true,
   })
 );
